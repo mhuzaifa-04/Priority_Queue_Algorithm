@@ -1,4 +1,4 @@
----
+
 # Priority Queue Operations  
 
 ## 📌 Introduction  
@@ -16,6 +16,5 @@ Common real-life examples:
 1. **Insert/Enqueue** → Add an element with a priority.  
 2. **Delete/Dequeue** → Remove the element with the highest priority.  
 3. **Peek/Front** → Get the highest priority element.  
-4. **isEmpty** → Check whether the queue is empty.  
-
----
+4. **isEmpty** → Check whether the queue is empty.
+   
