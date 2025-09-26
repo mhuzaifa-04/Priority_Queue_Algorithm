@@ -1,0 +1,97 @@
+#include<stdio.h>
+#include<stdbool.h>
+#define MAX 10
+int size = 0;
+int i = 0;
+int data[MAX];
+int priority[MAX];
+int priorr , value;
+void enqueue(int value, int priorr){
+  if(size == MAX){
+    printf("Overflow\n");
+    return;
+  }  
+   i = size-1;
+    while(i>=0 && priorr > priority[i]){
+        data[i+1] = data[i];
+        priority[i+1] = priority[i];
+        i--;
+    }
+       data[i+1] = value;
+       priority[i+1] = priorr;
+       size++;
+}   
+
+void dequeue(){
+  if(size == 0){
+    printf("Underflow\n");
+    return;
+  }
+  for(int j=0 ; j<size-1 ; j++){
+      data[j] = data[j+1];
+      priority[j] = priority[j+1];
+  }
+   size--;
+ }
+  
+void peek(){
+  if(size == 0){
+    printf("Stack is Empty\n");
+    return;
+  }
+    printf("Value : %d and Priority : %d " ,data[0] , priority[0] );
+}
+
+void display(){
+    if(size == 0){
+        printf("Stack is Empty\n");
+        return;
+    }
+      printf("Priority and Array\n");
+    for(i = 0; i<size ; i++){
+        // printf("Priority and Array\n");
+        printf("%d  %d\n",data[i],priority[i]);
+    }
+}
+
+void main(){
+  int choice , value;
+      while(1){
+    printf("1. Enqueue\n");
+    printf("2. Dequeue\n");
+    printf("3. Peek\n");
+    printf("4. Display\n");
+    printf("5. Exit\n");
+  
+   printf("Enter your Choice:");
+  scanf("%d",&choice);
+    switch(choice){
+      case 1 :  printf("Enter value:");
+                scanf("%d",& value);
+                printf("Enter Priority:");
+                scanf("%d",& priorr);
+                enqueue(value ,priorr);
+                break;
+      case 2 : dequeue();
+                break;
+      case 3 : peek();
+                break;  
+      case 4 : display();
+               break;
+      case 5 : return;
+      default : printf("Invalid Choice");
+    }
+  }
+  printf("Thanks for using.");
+}
+
+
+
+
+
+
+
+
+
+
+
